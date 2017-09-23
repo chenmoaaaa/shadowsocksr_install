@@ -1,14 +1,24 @@
 #!/usr/bin/env bash
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
+#=================================================================#
+#   System Required:  CentOS 6,7, Debian, Ubuntu                  #
+#   Description: One click Install ShadowsocksR Server            #
+#   Author: Teddysun <i@teddysun.com>                             #
+#   Thanks: @breakwa11 <https://twitter.com/breakwa11>            #
+#   Intro:  https://shadowsocks.be/9.html                         #
+#   逗逼一键脚本上修改的                                            #
+#=================================================================#
 
-#=================================================
-#	System Required: CentOS 6+/Debian 6+/Ubuntu 14.04+
-#	Description: Install the ShadowsocksR server
-#	Version: 2.0.33
-#	Author: Toyo
-#	Blog: https://doub.io/ss-jc42/
-#=================================================
+clear
+echo
+echo "#############################################################"
+echo "# One click Install ShadowsocksR Server                     #"
+echo "# Intro: https://shadowsocks.be/9.html                      #"
+echo "# Author: Teddysun <i@teddysun.com>                         #"
+echo "# Github: https://github.com/shadowsocksr/shadowsocksr      #"
+echo "#############################################################"
+echo
 
 sh_ver="2.0.33"
 filepath=$(cd "$(dirname "$0")"; pwd)
@@ -1398,8 +1408,8 @@ Set_config_connect_verbose_info(){
 }
 Update_Shell(){
 	echo -e "当前版本为 [ ${sh_ver} ]，开始检测最新版本..."
-	sh_new_ver=$(wget --no-check-certificate -qO- "https://softs.fun/Bash/ssr.sh"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1) && sh_new_type="softs"
-	[[ -z ${sh_new_ver} ]] && sh_new_ver=$(wget --no-check-certificate -qO- "https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1) && sh_new_type="github"
+	sh_new_ver=$(wget --no-check-certificate -qO- "https://github.com/slybootslion/shadowsocksr_install/blob/master/lussr.sh"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1) && sh_new_type="softs"
+	[[ -z ${sh_new_ver} ]] && sh_new_ver=$(wget --no-check-certificate -qO- "https://github.com/slybootslion/shadowsocksr_install/blob/master/lussr.sh"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1) && sh_new_type="github"
 	[[ -z ${sh_new_ver} ]] && echo -e "${Error} 检测最新版本失败 !" && exit 0
 	if [[ ${sh_new_ver} != ${sh_ver} ]]; then
 		echo -e "发现新版本[ ${sh_new_ver} ]，是否更新？[Y/n]"
@@ -1407,9 +1417,9 @@ Update_Shell(){
 		[[ -z "${yn}" ]] && yn="y"
 		if [[ ${yn} == [Yy] ]]; then
 			if [[ $sh_new_type == "softs" ]]; then
-				wget -N --no-check-certificate https://softs.fun/Bash/ssr.sh && chmod +x ssr.sh
+				wget -N --no-check-certificate https://github.com/slybootslion/shadowsocksr_install/blob/master/lussr.sh && chmod +x lussr.sh
 			else
-				wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh && chmod +x ssr.sh
+				wget -N --no-check-certificate https://github.com/slybootslion/shadowsocksr_install/blob/master/lussr.sh && chmod +x lussr.sh
 			fi
 			echo -e "脚本已更新为最新版本[ ${sh_new_ver} ] !"
 		else
