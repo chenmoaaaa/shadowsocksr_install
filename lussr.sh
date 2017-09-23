@@ -1,24 +1,14 @@
 #!/usr/bin/env bash
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
-#=================================================================#
-#   System Required:  CentOS 6,7, Debian, Ubuntu                  #
-#   Description: One click Install ShadowsocksR Server            #
-#   Author: Teddysun <i@teddysun.com>                             #
-#   Thanks: @breakwa11 <https://twitter.com/breakwa11>            #
-#   Intro:  https://shadowsocks.be/9.html                         #
-#   逗逼一键脚本上修改的                                            #
-#=================================================================#
 
-clear
-echo
-echo "#############################################################"
-echo "# One click Install ShadowsocksR Server                     #"
-echo "# Intro: https://shadowsocks.be/9.html                      #"
-echo "# Author: Teddysun <i@teddysun.com>                         #"
-echo "# Github: https://github.com/shadowsocksr/shadowsocksr      #"
-echo "#############################################################"
-echo
+#=================================================
+#	System Required: CentOS 6+/Debian 6+/Ubuntu 14.04+
+#	Description: Install the ShadowsocksR server
+#	Version: 2.0.33
+#	Author: Toyo
+#	Blog: https://doub.io/ss-jc42/
+#=================================================
 
 sh_ver="2.0.33"
 filepath=$(cd "$(dirname "$0")"; pwd)
